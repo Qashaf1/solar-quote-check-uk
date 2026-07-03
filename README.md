@@ -38,9 +38,10 @@ types/               Shared TypeScript types for the quote form
 
 ## Notes for production
 
-- The form's `handleSubmit` in `components/QuoteForm.tsx` simulates a network
-  request. Wire it up to a real API route (e.g. `app/api/lead/route.ts`) that
-  validates and forwards submissions to your CRM/installer network.
+- `components/QuoteForm.tsx` submits leads directly to Supabase via
+  `lib/supabase.ts` (table: `leads`). Set `NEXT_PUBLIC_SUPABASE_URL` and
+  `NEXT_PUBLIC_SUPABASE_ANON_KEY` in `.env.local` (see placeholders in that
+  file) and add the same variables in your Vercel project settings.
 - Replace the placeholder legal page copy in `app/privacy-policy`,
   `app/terms`, `app/cookie-policy` and `app/contact` with reviewed copy.
 - Add a real `public/og-image.png` (1200×630) for social sharing previews.
