@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 255 255 255;
+  --bg-card: 244 246 245;
+  --ink: 31 41 55;
+  --ink-soft: 75 85 99;
+  --border: 229 231 235;
+}
+
+.dark {
+  --bg: 15 20 18;
+  --bg-card: 26 36 32;
+  --ink: 237 242 239;
+  --ink-soft: 156 167 161;
+  --border: 40 51 46;
+}
+
+* {
+  border-color: rgb(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--ink));
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+::selection {
+  background-color: #16a34a;
+  color: white;
+}
+
+:focus-visible {
+  outline: 2px solid #16a34a;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.grain-surface {
+  background-image: radial-gradient(circle at 1px 1px, rgba(31,41,55,0.06) 1px, transparent 0);
+  background-size: 18px 18px;
+}
+
+.dark .grain-surface {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.06) 1px, transparent 0);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
